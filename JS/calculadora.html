@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    
+
+    <title>Calculadora</title>
+</head>
+
+<body onload="startTime()">
+
+    
+    <div data-aos="fade-up">
+    <div id="calculadora">
+    <h1 class="tracking-in-contract-bck-top" id="titulo">Calculadora</h1><br>
+    <td colspan="4"> <input type="text" id="terminal" onchange="" value=0 readonly size="42"> </td>
+    <table>
+
+        <tbody>
+            <tr>
+                
+            </tr>
+            <tr>
+                <td colspan="1"><input type="button" class="numero" id="n1" placeholder=1 onclick="n1()" value="1"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n2" placeholder=2 onclick="n2()" value="2"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n3" placeholder=3 onclick="n3()" value="3"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="mais" placeholder="+" onclick="soma()"
+                        value="&plus;"></td>
+
+            </tr>
+
+            <tr>
+                <td colspan="1"><input type="button" class="numero" id="n4" placeholder=4 onclick="n4()" value="4"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n5" placeholder=5 onclick="n5()" value="5"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n6" placeholder=6 onclick="n6()" value="6"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="menos" placeholder="-" onclick="menos()"
+                        value="&minus;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="1"><input type="button" class="numero" id="n7" placeholder=7 onclick="n7()" value="7"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n8" placeholder=8 onclick="n8()" value="8"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n9" placeholder=9 onclick="n9()" value="9"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="multi" placeholder="*" onclick="vezes();"
+                        value="&times;"></td>
+            </tr>
+
+            <tr>
+
+                <td colspan="1"><input type="button" class="operador" id="dividir" onclick="divide()" placeholder="/"
+                        value="&divide;"></td>
+
+                <td colspan="1"><input type="button" class="numero" id="n0" onclick="n0()" placeholder=0 value="0"></td>
+
+
+
+                <td colspan="1"><input type="button" class="numero" id="virgula" onclick="virgula()" placeholder="."
+                        value="&comma;"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="igual" onclick="igual()" placeholder="="
+                        value="&equals;"></td>
+            </tr>
+            <tr>
+                <td colspan="1"><input type="button" class="operador" id="square" onclick="raiz()" placeholder=0
+                        value="&Sqrt;"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="percent" onclick="percent()" placeholder="/"
+                        value="&percnt;"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="elevado" onclick="elevado()" placeholder="."
+                        value="^"></td>
+
+                <td colspan="1"><input type="button" class="operador" id="igual" onclick="atras()" placeholder="="
+                        value="&LeftArrowBar;"></td>
+            </tr>
+            <tr>
+                <td colspan="1"><input type="button" class="operador" onclick="apagar()" value="C"></td>
+                <td colspan="1"><input type="button" class="operador" onclick="apaga1()" value="CE"></td>
+                <td colspan="1"><input type="button" class="operador" id="dolar" onclick="dolartoeuro()" placeholder=0
+                        value="$ -> €"></td>
+                <td colspan="1"><input type="button" class="operador" id="euro" onclick="eurotodolar()" placeholder=0
+                        value="€ -> $"></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<div class="seta">
+    <h4 id="historicoo">Historico</h4>
+    <i onclick="mostrar();" id="seta1" class="fa-solid fa-arrow-up fa-bounce" style="color: #ffffff;"></i>
+    <i onclick="mostrar();" id="seta2" class="fa-solid fa-arrow-down fa-bounce" style="color: #ffffff;"></i>
+    </div>
+</div>
+
+
+
+<div class="scale-in-center" id="omg">
+<div id="historico">
+    <h2 class="tracking-in-contract-bck-bottom" id="histit">Historico</h2> <br>
+    <textarea name="Historico" id="hist" cols="45" rows="18" readonly></textarea>
+    
+</div>
+<div id="maioresult">
+    <h3>Maior Resultado Obtido:</h3>
+    <input type="text" id="max" size="46" readonly>
+</div>
+
+<div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <button style="background: transparent; border: none; color:white; margin-bottom: 10px;" onclick="downloadAsTxt()">Download AS TXT</button>
+    <button style="background: transparent; border: none; color:white; margin-bottom: 10px;" onclick="downloadAsPDF()">Download AS PDF</button>
+    <div style="display: flex;">
+    <b style="color:white;">Color Background:</b> <input type="color" id="colorPicker1" value="#000000"> 
+    <b style="color:white;">Color Button:</b> <input type="color" id="colorPicker2" value="#000000"> 
+    <b style="color:white;">Color Text:</b> <input type="color" id="colorPicker3" value="#000000"> 
+</div>
+</div>
+    <div style="margin-top: 20px;"id="txt"></div>
+
+
+</div>
+</div>
+<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+<script src="index.js"></script>
+</body>
+</html>
